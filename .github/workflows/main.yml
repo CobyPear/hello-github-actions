@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v1
       # provides relative path to the action created in action-a directory
       - uses: ./action-a
-        with:
         # specifies the input varibles that will be availabe to the action in the runtime environment.
         # here, the input variable is MY_NAME and it's initialized to "Octo"
+        with:
           MY_NAME: "Octo"
