@@ -1,12 +1,23 @@
+# name of the workflow
 name: A workflow for my Hello World file
+# when does it run? in this case, on any push event
 on: push
 
+# base component of a workflow run
 jobs:
+  # the identifier we're attaching to this event
   build:
+    # name of the job. Displayed in GH when workflow is running
     name: Hello world action
+    # type of machine to run the job. Can be GH hosted or self hosted
     runs-on: ubuntu-latest
+    # linear sequence of operations that make up the job
     steps:
+      # using a community action called checkout to allow the workflow to access the contents of the repo
       - uses: actions/checkout@v1
+      # provides relative path to the action created in action-a directory
       - uses: ./action-a
         with:
-          MY_NAME: "Coby"
+        # specifies the input varibles that will be availabe to the action in the runtime environment.
+        # here, the input variable is MY_NAME and it's initialized to "Octo"
+          MY_NAME: "Octo"
